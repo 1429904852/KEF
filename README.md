@@ -1,6 +1,6 @@
 # KEF
 
-Code and data for "Learning from Adjective-Noun Pairs: A Knowledge-enhanced Framework for Target-Oriented Multimodal Sentiment Classification" (COLING 2022)
+Code and data for "[Learning from Adjective-Noun Pairs: A Knowledge-enhanced Framework for Target-Oriented Multimodal Sentiment Classification](https://aclanthology.org/2022.coling-1.590.pdf)" (COLING 2022)
 
 ## Overview
 
@@ -33,6 +33,23 @@ python main.py --phase="bert_test_anp" --dataset="twitter2015" --config_path="sr
 ```
 
 ## Citation
-
+```bash
+@inproceedings{zhao-etal-2022-learning-adjective,
+    title = "Learning from Adjective-Noun Pairs: A Knowledge-enhanced Framework for Target-Oriented Multimodal Sentiment Classification",
+    author = "Zhao, Fei  and
+      Wu, Zhen  and
+      Long, Siyu  and
+      Dai, Xinyu  and
+      Huang, Shujian  and
+      Chen, Jiajun",
+    booktitle = "Proceedings of the 29th International Conference on Computational Linguistics",
+    month = oct,
+    year = "2022",
+    address = "Gyeongju, Republic of Korea",
+    publisher = "International Committee on Computational Linguistics",
+    url = "https://aclanthology.org/2022.coling-1.590",
+    pages = "6784--6794"
+}
+```
 If the code is used in your research, please cite our paper.
 
