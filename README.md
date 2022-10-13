@@ -9,13 +9,35 @@ Code and data for "[Learning from Adjective-Noun Pairs: A Knowledge-enhanced Fra
 - In this paper, we propose leveraging adjective-noun pairs (ANPs) extracted from the image to help align text and image in the TMSC task.
 - We propose a Knowledge-enhanced Framework (KEF), which contains a Visual Attention Enhancer to improve the effectiveness of visual attention, and a Sentiment Prediction Enhancer to reduce the difficulty of sentiment prediction.
 
-## Dependencies
+## Setup
 
+### Dependencies
+```bash
 - python=3.5
 - numpy=1.14.2
 - tensorflow=1.9
+```
 
-## Usage
+### Download and preprocess the datasets
+Because the image features and and pre-trained model are very large, you can download them via the [link](). It should be noted that the path of the absa_data is consistent with the file tree.
+
+```sh
+├── /absa_data/
+│  ├── /twitter2015/
+│  │  │  ├── /images2015_feature/	        // the image feature for each image
+│  │  │  ├── /twitter2015_images/	        // the original image
+│  │  │  ├── train.txt
+│  │  │  ├── dev.txt
+│  │  │  ├── test.txt
+│  ├── /twitter2017/
+│  │  │  ├── /images2017_feature/
+│  │  │  ├── /twitter2017_images/
+│  │  │  ├── train.txt
+│  │  │  ├── dev.txt
+│  │  │  ├── test.txt
+```
+
+### Usage
 
 - Train
 
