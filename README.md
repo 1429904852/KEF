@@ -13,9 +13,9 @@ Code and data for "[Learning from Adjective-Noun Pairs: A Knowledge-enhanced Fra
 
 ### Dependencies
 ```bash
-- python=3.5
-- numpy=1.14.2
-- tensorflow=1.9
++ python=3.5
++ numpy=1.14.2
++ tensorflow=1.9
 ```
 
 ### Download and preprocess the datasets
