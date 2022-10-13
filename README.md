@@ -19,7 +19,7 @@ Code and data for "[Learning from Adjective-Noun Pairs: A Knowledge-enhanced Fra
 ```
 
 ### Download and preprocess the datasets
-Because the image features and and pre-trained model are very large, you can download them via the [link](). It should be noted that the path of the absa_data is consistent with the file tree.
+Because the image features and and pre-trained model are very large, you can download them via the [link](https://drive.google.com/file/d/10yag6vbMCkptsIHSx5EVWV3cb9CflGbu/view?usp=sharing). It should be noted that the path of the absa_data is consistent with the file tree.
 
 ```sh
 ├── /absa_data/
@@ -45,6 +45,7 @@ You can use the folowing command to train KEF on the TMSC task:
 
 ```bash
 python main.py --phase="bert_train_anp" --dataset="twitter2015" --config_path="src/multimodal/config/twitter2015_config.json"
+python main.py --phase="bert_train_anp" --dataset="twitter2017" --config_path="src/multimodal/config/twitter2017_config.json"
 ```
 -  Test
 
@@ -52,6 +53,7 @@ You can use the folowing command to test KEF on the TMSC task:
 
 ```bash
 python main.py --phase="bert_test_anp" --dataset="twitter2015" --config_path="src/multimodal/config/twitter2015_config.json"
+python main.py --phase="bert_test_anp" --dataset="twitter2017" --config_path="src/multimodal/config/twitter2017_config.json"
 ```
 
 ## Citation
