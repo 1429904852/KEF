@@ -138,11 +138,17 @@ class BertClassifier(object):
             output_layer_sen = multi_head_attention(output_layer, output_layer, output_target, hidden_size,
                                                         self.multi_heads,
                                                         scope="multihead_1")
-                
 
+
+            # target attention picture
+            inputs_pic = tf.reshape(output_picture_feature, [-1, self.picture_length, self.picture_dimension])
+            output_layer_pic = multi_head_attention(inputs_pic, inputs_pic, output_target, hidden_size,
+                                                        self.multi_heads,
+                                                        scope="multihead_2")
+                
             # 方法2
             output_query_adj_total = weight_ * output_anp_adj
-            # output_layer_pic = output_layer_pic + self.anp_parameter * output_query_adj_total
+            output_layer_pic = output_layer_pic + self.anp_parameter * output_query_adj_total
             
             output_total = tf.concat([output_layer_sen, output_query_adj_total], -1)
             output_first = tf.squeeze(output_total[:, 0:1, :], axis=1)
@@ -170,10 +176,10 @@ class BertClassifier(object):
                 self.loss = tf.reduce_mean(losses, name="loss")
 
                 # 辅助loss
-                # recon_loss = tf.square(output_recon_target - output_layer_pic)
-                # recon_loss_ = tf.reduce_mean(tf.reduce_mean(recon_loss, 1), -1)
-                # self.mse = tf.reduce_mean(recon_loss_)
-                # self.loss = self.loss_1 + self.aux_parameter * self.mse
+                recon_loss = tf.square(output_recon_target - output_layer_pic)
+                recon_loss_ = tf.reduce_mean(tf.reduce_mean(recon_loss, 1), -1)
+                self.mse = tf.reduce_mean(recon_loss_)
+                self.loss = self.loss_1 + self.aux_parameter * self.mse
 
             with tf.name_scope('train_op'):
                 self.train_op = optimization.create_optimizer(
